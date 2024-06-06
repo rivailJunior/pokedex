@@ -1,9 +1,13 @@
+import { env } from '@/config/env';
+const { LOCAL_API_URL } = env;
+
 export async function getPokemon(state: any, formData: FormData) {
   try {
     const rawData = {
       pokemon: formData.get('pokemon'),
     };
-    const response = await fetch('http://localhost:3000/api/', {
+    console.log('LOCAL_API_URL:', LOCAL_API_URL)
+    const response = await fetch(LOCAL_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -2,11 +2,12 @@
 import React from 'react';
 import { PokemonCard } from '../Card/ card';
 import { useFormState } from 'react-dom';
-import { getPokemon } from '@/services/get-pokemon';
+import { getPokemon } from '@/services/client/get-pokemon';
 import { FormInput } from '../Form';
 
 export function FormPage() {
   const [state, formAction] = useFormState(getPokemon, { data: null });
+  console.log('state:', state)
   const { data } = state;
   return (
     <>
