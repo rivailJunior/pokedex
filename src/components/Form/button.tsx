@@ -3,7 +3,7 @@ import { useFormStatus } from 'react-dom';
 
 export function SubmitFormButton() {
   const { pending } = useFormStatus();
-  const btnClass = pending && 'opacity-70 cursor-not-allowed';
+  const btnClass = pending && ' opacity-30 cursor-not-allowed';
   return (
     <button
       disabled={pending}
