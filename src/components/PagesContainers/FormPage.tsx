@@ -6,13 +6,14 @@ import { getPokemon } from '@/services/client/get-pokemon';
 import { FormInput } from '../Form';
 
 export function FormPage() {
-  const [state, formAction] = useFormState(getPokemon, { data: null });
-  console.log('state:', state)
-  const { data } = state;
+  const [state, formAction] = useFormState(getPokemon, { data: null, message: null });
+  const { data, message } = state;
+
   return (
     <>
       <FormInput formAction={formAction} />
-      {data && (
+      {!data && message === "not found" && <p className="text-center">Pokemon not found</p>}
+      {data && !message?.length && (
         <PokemonCard
           descriptions={[
             {

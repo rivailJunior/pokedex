@@ -3,10 +3,10 @@ const { LOCAL_API_URL } = env;
 
 export async function getPokemon(state: any, formData: FormData) {
   try {
+    const pokemon = formData.get('pokemon');
     const rawData = {
-      pokemon: formData.get('pokemon'),
+      pokemon: pokemon?.toString().toLowerCase()
     };
-    console.log('LOCAL_API_URL:', LOCAL_API_URL)
     const response = await fetch(LOCAL_API_URL, {
       method: 'POST',
       headers: {
@@ -17,7 +17,7 @@ export async function getPokemon(state: any, formData: FormData) {
     if (response.status === 200) {
       return await response.json();
     } else {
-      return { data: null };
+      return { data: null, message: "not found" };
     }
   } catch (err) {
     // TODO: improve it
