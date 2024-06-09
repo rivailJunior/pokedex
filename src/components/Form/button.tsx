@@ -9,7 +9,7 @@ export function SubmitFormButton() {
       disabled={pending}
       type='submit'
       className={
-        'p-2.5 ms-2 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none ' +
+        'p-2.5 ms-2 text-sm font-medium border-gray-600 border-1 text-white bg-gray-800 rounded-lg hover:bg-gray-600 focus:border-gray-300 focus:outline-none ' +
         btnClass
       }
     >
